@@ -1,0 +1,25 @@
+[
+  {
+    "question_id": "Q002",
+    "model": "gemini-3.6-flash",
+    "run": 1,
+    "response": "**No, we cannot.**\n\nThe statement specifies that Ravi loves dogs **as pets**, not as food. Just because he loves fish in the context of food does not mean he views dogs in that same context. Mixing the two categories creates an invalid conclusion.",
+    "correct": true,
+    "latency_seconds": 9.113,
+    "evaluation_method": "llm_judge",
+    "judge_result": {
+      "verdict": "PASS",
+      "criteria": [
+        {
+          "criterion_number": 1,
+          "met": true
+        },
+        {
+          "criterion_number": 2,
+          "met": true
+        }
+      ],
+      "reason": "The model correctly concludes that the statement does not imply Ravi loves dogs as food, and clearly distinguishes between loving an animal as a pet versus as food."
+    }
+  }
+]

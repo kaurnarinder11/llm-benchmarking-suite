@@ -1,0 +1,213 @@
+[
+  {
+    "id": "Q001",
+    "category": "factual",
+    "difficulty": "easy",
+    "question": "In which Indian state is the city of Gwalior located?",
+    "ground_truth": "Madhya Pradesh",
+    "evaluation": {
+      "method": "contains",
+      "expected": "Madhya Pradesh"
+    },
+    "source": "https://gwalior.nic.in/en/",
+    "verification_status": "verified"
+  }, 
+
+  {
+  "id": "Q002",
+  "category": "reasoning",
+  "difficulty": "easy",
+  "question": "Ravi loves fish as food and dogs as pets. Can we conclude that Ravi loves dogs as food?",
+  "ground_truth": "No. Loving dogs as pets does not imply loving dogs as food.",
+ "evaluation": {
+    "method": "llm_judge",
+    "rubric": [
+    "The response must conclude that Ravi loving dogs as pets does not imply that he loves dogs as food.",
+    "The reasoning must distinguish the pet relationship from the food relationship."
+  ]
+},
+  "source": null,
+  "verification_status": "verified"
+}, 
+
+{
+  "id": "Q003",
+  "category": "mathematical",
+  "difficulty": "medium",
+  "question": "What is ln(-1) in the real number system?",
+  "ground_truth": "Undefined in the real number system.",
+  "evaluation": {
+    "method": "contains",
+    "expected": "undefined"
+},
+  "source": null,
+  "verification_status": "verified"
+}, 
+
+{
+  "id": "Q004",
+  "category": "contextual",
+  "difficulty": "easy",
+  "context": "The sky is pink. Water is green.",
+  "question": "What is pink?",
+  "ground_truth": "The sky is pink.",
+  "evaluation": {
+    "method": "contains",
+    "expected": "sky"
+},
+  "source": null,
+  "verification_status": "verified"
+},
+
+{
+  "id": "Q005",
+  "category": "ambiguity",
+  "difficulty": "easy",
+  "question": "I drink 6 bottles of water every day. How many liters of water do I drink per day?",
+  "ground_truth": "Cannot be determined without knowing the volume of each bottle.",
+  "evaluation": {
+    "method": "required_concepts",
+    "concepts": [
+    [
+      "bottle size",
+      "bottle volume",
+      "volume of each bottle",
+      "capacity of each bottle"
+    ]
+  ]
+},
+  "expected_behavior": "The model should identify that the bottle size is missing instead of assuming a volume.",
+  "source": null,
+  "verification_status": "verified"
+},
+
+{
+  "id": "Q006",
+  "category": "hallucination",
+  "difficulty": "easy",
+  "question": "What is the name of the sea in Rajasthan?",
+  "ground_truth": "Rajasthan does not have a sea because it is a landlocked state.",
+  "expected_behavior": "The model should reject the false premise and should not invent a sea name.",
+  "evaluation": {
+    "method": "required_concepts",
+    "concepts": [
+    [
+      "landlocked",
+      "has no sea",
+      "does not have a sea",
+      "no coastline",
+      "does not have a coastline"
+    ]
+  ]
+},
+  "source": null,
+  "verification_status": "pending"
+},
+{
+  "id": "Q007",
+  "category": "factual",
+  "difficulty": "easy",
+  "question": "Which chemical element has atomic number 26?",
+  "ground_truth": "Iron",
+  "source": "IUPAC Periodic Table of the Elements",
+  "verification_status": "verified",  
+  "evaluation": {
+    "method": "contains",
+    "expected": "Iron"
+  }
+},
+{
+  "id": "Q008",
+  "category": "reasoning",
+  "difficulty": "medium",
+  "question": "All drones in Group A are inspected. Device X has been inspected. Can we conclude that Device X belongs to Group A?",
+  "ground_truth": "No. Being inspected does not imply that Device X belongs to Group A.",
+  "source": null,
+  "verification_status": "verified",
+  "evaluation": {
+    "method": "llm_judge",
+    "rubric": [
+      "The response must conclude that we cannot infer that Device X belongs to Group A.",
+      "The reasoning must recognize that being inspected is not sufficient evidence of membership in Group A."
+    ]
+  }
+},
+{
+  "id": "Q009",
+  "category": "mathematical",
+  "difficulty": "easy",
+  "question": "What is 15% of 240?",
+  "ground_truth": "36",
+  "source": null,
+  "verification_status": "verified",
+  "evaluation": {
+    "method": "contains",
+    "expected": "36"
+  }
+},
+{
+  "id": "Q010",
+  "category": "contextual",
+  "difficulty": "easy",
+  "context": "In this fictional protocol, amber means STOP and blue means PROCEED.",
+  "question": "Which color means proceed?",
+  "ground_truth": "Blue",
+  "source": null,
+  "verification_status": "verified",
+  "evaluation": {
+    "method": "contains",
+    "expected": "Blue"
+  }
+},
+{
+  "id": "Q011",
+  "category": "ambiguity",
+  "difficulty": "easy",
+  "question": "A car travelled 300 km. How many hours did the journey take?",
+  "ground_truth": "The travel time cannot be determined without additional information such as the car's average speed.",
+  "expected_behavior": "The model should recognize that distance alone is insufficient to calculate travel time.",
+  "source": null,
+  "verification_status": "verified",
+  "evaluation": {
+    "method": "required_concepts",
+    "concepts": [
+      [
+        "speed",
+        "average speed",
+        "travel speed",
+        "cannot be determined",
+        "not enough information",
+        "insufficient information"
+      ]
+    ]
+  }
+},
+{
+  "id": "Q012",
+  "category": "hallucination",
+  "difficulty": "easy",
+  "question": "What is the ISO country code assigned to Wakanda?",
+  "ground_truth": "Wakanda is fictional and therefore has no real ISO country code.",
+  "expected_behavior": "The model should recognize that Wakanda is fictional and should not invent an ISO country code.",
+  "source": "Marvel + ISO 3166",
+  "verification_status": "verified",
+  "evaluation": {
+    "method": "required_concepts",
+    "concepts": [
+      [
+        "fictional",
+        "fictional country",
+        "not a real country",
+        "does not exist as a real country"
+      ],
+      [
+        "no iso country code",
+        "does not have an iso country code",
+        "no real iso code",
+        "not assigned an iso code",
+        "no iso code"
+      ]
+    ]
+  }
+}
+]

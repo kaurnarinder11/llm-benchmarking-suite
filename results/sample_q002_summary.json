@@ -1,0 +1,18 @@
+{
+  "total_runs": 1,
+  "correct_runs": 1,
+  "run_level_accuracy": 1.0,
+  "average_latency_seconds": 9.113,
+  "median_latency_seconds": 9.113,
+  "category_performance": {
+    "reasoning": {
+      "total": 1,
+      "correct": 1,
+      "accuracy": 1.0,
+      "average_latency_seconds": 9.113
+    }
+  },
+  "evaluation_methods": {
+    "llm_judge": 1
+  }
+}
